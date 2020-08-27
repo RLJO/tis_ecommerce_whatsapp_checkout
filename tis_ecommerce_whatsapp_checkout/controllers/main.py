@@ -17,12 +17,12 @@ class WebsiteSale(WebsiteSale):
             'tis_ecommerce_whatsapp_checkout.whatsapp_number')
         if not mobile_num:
             return request.redirect('/shop/cart')
-        message_string = 'Hi, I would like to buy the following products.%0a%0a'
+        message_string = 'Hola, me gustaría consultar por la compra de los siguientes productos.%0a%0a'
         for order_line in order.order_line:
             message_string = message_string + '%20' + str(order_line.product_uom_qty) + '%20X%20' + str(
                 order_line.product_id.display_name) + '%0a'
         message_string = message_string + '%0aOrder Total : ' + str(order.currency_id.symbol) + '%20' + \
-                         str(order.amount_total) + '%0a%0a _Thank You_%20%0a%20'
+                         str(order.amount_total) + '%0a%0a _Muchas gracias_%20%0a%20'
         order.unlink()
         return mobile_num, message_string
 
