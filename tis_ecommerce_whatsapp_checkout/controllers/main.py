@@ -17,7 +17,11 @@ class WebsiteSale(WebsiteSale):
             'tis_ecommerce_whatsapp_checkout.whatsapp_number')
         if not mobile_num:
             return request.redirect('/shop/cart')
+<<<<<<< HEAD
         message_string = 'Hola, me gustaría consultar por la compra de los siguientes productos.%0a%0a'
+=======
+        message_string = 'Hola!!! me gustaría adquirir los siguientes artículos...%0a%0a'
+>>>>>>> b3b19e7... Se agrega traducción a mensaje de ws
         for order_line in order.order_line:
             message_string = message_string + '%20' + str(order_line.product_uom_qty) + '%20X%20' + str(
                 order_line.product_id.display_name) + '%0a'
